@@ -68,6 +68,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="20dp"
+            android:maxLength="10"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
             android:inputType="textCapWords"
@@ -106,6 +107,7 @@
                    android:id="@+id/day"
                    android:layout_width="match_parent"
                    android:inputType="number"
+                   android:maxLength="2"
                    android:layout_height="wrap_content"/>
 
            </com.google.android.material.textfield.TextInputLayout>
@@ -114,6 +116,7 @@
                 style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_marginEnd="30dp"
+                android:maxLength="2"
                 android:layout_height="wrap_content">
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/month"
@@ -133,6 +136,7 @@
                     android:id="@+id/year"
                     android:layout_width="match_parent"
                     android:inputType="number"
+                    android:maxLength="4"
                     android:layout_height="wrap_content"/>
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -190,6 +194,7 @@
 
         <TextView
             android:id="@+id/next"
+            android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_marginBottom="5dp"
             android:background="@drawable/button_module"

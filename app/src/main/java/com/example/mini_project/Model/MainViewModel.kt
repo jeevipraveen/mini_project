@@ -1,6 +1,5 @@
 package com.example.mini_project.Model
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -11,11 +10,16 @@ class MainViewModel: ViewModel() {
     private val _isValid = MutableLiveData<Boolean>()
     val isValid: LiveData<Boolean> = _isValid
 
-    fun validateDetails(birthdate: String, panNumber: String) {
+    fun validateDetails(birthdateday: String,birthdatemonth: String,birthdateyear: String, panNumber: String) {
+
+        val isBirthdatedayValidETC1 = birthdateday
+        val isBirthdatemonthValid1 = birthdatemonth
+        val isBirthdateyearValid1 = birthdateyear
+        val birthdate = isBirthdatedayValidETC1 +isBirthdatemonthValid1+isBirthdateyearValid1
+
         val isBirthdateValid = isValidBirthdate(birthdate)
         val isPanValid = isValidPAN(panNumber)
         _isValid.value = isBirthdateValid && isPanValid
-        Log.d("ghdghjca","$_isValid")
     }
 
     private fun isValidBirthdate(birthdate: String): Boolean {
