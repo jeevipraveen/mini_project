@@ -11,11 +11,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.mini_project.Model.MainViewModel
 import com.google.android.material.textfield.TextInputEditText
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.async
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -50,9 +46,6 @@ class MainActivity : AppCompatActivity() {
             viewModel.validateDetails(pan_number.text.toString(), day.text.toString(), month.text.toString(), year.text.toString())
         }
 
-        viewModel.isValid.observe(this, Observer { isEnabled ->
-            next.isEnabled = isEnabled
-        })
 
         viewModel.isValid.observe(this, Observer { isEnabled ->
                     next.visibility = View.VISIBLE
@@ -62,11 +55,21 @@ class MainActivity : AppCompatActivity() {
 
 
 
-        next.setOnClickListener { Toast.makeText(this, "Details submitted successfully", Toast.LENGTH_SHORT).show()
-        finish()}
+        next.setOnClickListener {
+            close()
+        }
 
-        close.setOnClickListener { finish() }
+        close.setOnClickListener {
+            finish()
+        }
 
     }
+
+    fun close(){
+        Toast.makeText(this, "Details submitted successfully", Toast.LENGTH_SHORT).show()
+        finish()
+
+    }
+
 
 }
